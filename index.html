@@ -870,9 +870,9 @@ footer{padding:56px 0 26px}
     const data = Object.fromEntries(fd);
     data.services = fd.getAll('services').join(' / ');
     if (data.botcheck) return; // bots fill the hidden box
-    const fail = (why) => {
+    const fail = () => {
       statusEl.className = 'status ng';
-      statusEl.innerHTML = '送信できませんでした。お手数ですがお電話（<a href="tel:022-257-3986">022-257-3986</a>）でご連絡ください。' + (why ? '<br><small>【確認用】エラー内容: ' + String(why).replace(/[<>&]/g, '') + '</small>' : '');
+      statusEl.innerHTML = '送信できませんでした。お手数ですがお電話（<a href="tel:022-257-3986">022-257-3986</a>）でご連絡ください。';
     };
     if (!FORM_ACCESS_KEY) { fail(); console.warn('FORM_ACCESS_KEY が未設定のため送信していません。'); return; }
     submitBtn.disabled = true;
@@ -896,7 +896,7 @@ footer{padding:56px 0 26px}
       statusEl.className = 'status ok';
       statusEl.textContent = 'お問い合わせありがとうございます。内容を確認し、3営業日以内にご連絡差し上げます。';
     } catch (err) {
-      console.error(err); fail(err && err.message);
+      console.error(err); fail();
     } finally { submitBtn.disabled = false; }
   });
 
