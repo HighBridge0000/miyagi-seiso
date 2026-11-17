@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>株式会社宮城清掃 | 仙台市のビル定期清掃・高所窓ガラス清掃・エアコンクリーニング</title>
+<meta name="description" content="宮城県仙台市の株式会社宮城清掃。ビルの定期清掃、マンションなどの高所窓ガラス清掃、エアコン分解・クリーニングまで、法人・個人問わず承ります。東北6県対応。">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a1b2e;
+  --ink-2:#12304d;
+  --water:#19b5d8;
+  --water-light:#8fe3f5;
+  --mist:#eef5f8;
+  --paper:#ffffff;
+  --text:#22313f;
+  --muted:#6b7c8a;
+  --line:#d9e4ea;
+  --serif:"Shippori Mincho","Hiragino Mincho ProN",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --latin:"Outfit",var(--sans);
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--sans);color:var(--text);background:var(--paper);line-height:1.9;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:2px solid var(--water);outline-offset:3px}
+
+/* progress */
+.progress{position:fixed;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--water),var(--water-light));transform-origin:0 50%;transform:scaleX(0);z-index:120}
+
+/* header */
+.header{position:fixed;inset:0 0 auto 0;z-index:100;color:#fff;transition:background .4s,color .4s,box-shadow .4s}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;transition:height .4s}
+.header.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(12px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+.header.scrolled .wrap{height:60px}
+.brand{font-family:var(--serif);font-size:1.15rem;font-weight:600;letter-spacing:.12em;display:flex;align-items:center;gap:10px}
+.brand i{width:10px;height:10px;border-radius:50%;background:var(--water);box-shadow:0 0 0 4px rgba(25,181,216,.25)}
+.nav{display:flex;align-items:center;gap:26px;font-size:.86rem;font-weight:500;letter-spacing:.06em}
+.nav a:not(.tel){position:relative;padding:6px 0}
+.nav a:not(.tel)::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:100% 50%;transition:transform .4s var(--ease)}
+.nav a:not(.tel):hover::after{transform:scaleX(1);transform-origin:0 50%}
+.tel{font-family:var(--latin);font-size:1rem;font-weight:500;letter-spacing:.06em;padding:8px 20px;border-radius:999px;background:var(--water);color:#fff;transition:transform .3s var(--ease),background .3s}
+.tel:hover{background:#0fa3c6;transform:translateY(-2px)}
+.burger{display:none;width:44px;height:44px;background:none;border:0;color:inherit;cursor:pointer;position:relative}
+.burger span{position:absolute;left:10px;right:10px;height:2px;background:currentColor;transition:transform .35s var(--ease),top .35s var(--ease)}
+.burger span:nth-child(1){top:17px}.burger span:nth-child(2){top:26px}
+.menu-open .burger span:nth-child(1){top:21px;transform:rotate(45deg)}
+.menu-open .burger span:nth-child(2){top:21px;transform:rotate(-45deg)}
+
+.mark{position:relative;width:30px;height:33px;flex:none}
+.mark img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .4s}
+.mark .k{opacity:0}
+.header.scrolled .mark .k{opacity:1}.header.scrolled .mark .w{opacity:0}
+.menu-open .header .mark .w{opacity:1}.menu-open .header .mark .k{opacity:0}
+.brand:hover .mark{animation:sweep .7s var(--ease)}
+@keyframes sweep{30%{transform:rotate(-10deg)}65%{transform:rotate(8deg)}}
+
+/* intro */
+.intro{position:fixed;inset:0;z-index:300;background:var(--ink);display:grid;place-items:center;pointer-events:none;animation:introOut .6s 1.1s var(--ease) forwards}
+.intro img{width:min(230px,50vw);height:auto;animation:introLogo 1s var(--ease) both}
+@keyframes introOut{to{opacity:0;visibility:hidden}}
+@keyframes introLogo{from{opacity:0;transform:scale(.9);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;background:var(--ink);overflow:hidden}
+.hero-img,.hero-fog{position:absolute;inset:-8% 0;background:url("sendai.jpg") center/cover}
+.hero-img::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,27,46,.6) 0%,rgba(10,27,46,.38) 40%,rgba(10,27,46,.88) 100%)}
+.slide{position:absolute;inset:0;background:center/cover no-repeat;opacity:0;transform:scale(1);transition:opacity 1.8s ease,transform 9s linear}
+.slide.on{opacity:1;transform:scale(1.1)}
+.hero-dots{position:absolute;left:max(20px,calc((100% - 1120px)/2));bottom:40px;display:flex;align-items:center;gap:10px;z-index:2}
+.hero-dots button{width:34px;height:20px;padding:0;border:0;background:none;cursor:pointer;position:relative}
+.hero-dots button::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:rgba(255,255,255,.3)}
+.hero-dots button::after{content:"";position:absolute;left:0;top:9px;height:2px;width:0;background:#fff}
+.hero-dots button.on::after{width:100%;transition:width 6.5s linear}
+.hero-dots .cap{font-size:.74rem;letter-spacing:.1em;color:rgba(255,255,255,.8);margin-left:8px}
+.hero-fog{filter:blur(14px) saturate(.5) brightness(1.15);clip-path:inset(0 0 0 0);animation:wipe 1.9s 1.4s var(--ease) forwards}
+.hero-fog::after{content:"";position:absolute;inset:0;background:rgba(210,228,236,.55)}
+.squeegee{position:absolute;top:0;bottom:0;left:0;width:3px;background:linear-gradient(180deg,transparent,#fff 20%,#fff 80%,transparent);box-shadow:0 0 30px 6px rgba(255,255,255,.6);animation:squeegee 1.9s 1.4s var(--ease) forwards;opacity:0}
+@keyframes wipe{to{clip-path:inset(0 0 0 100%)}}
+@keyframes squeegee{0%{left:0;opacity:1}95%{opacity:1}100%{left:100%;opacity:0}}
+.hero-inner{position:relative;width:min(1120px,100% - 40px);margin-inline:auto;padding:140px 0 110px}
+.eyebrow{font-family:var(--latin);font-size:.8rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--water-light);display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:40px;height:1px;background:currentColor}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.1rem,6.2vw,4.6rem);line-height:1.35;letter-spacing:.06em;margin:22px 0 26px}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln span{display:block;transform:translateY(105%);animation:rise 1.1s var(--ease) forwards}
+.hero h1 .ln:nth-child(1) span{animation-delay:2.2s}
+.hero h1 .ln:nth-child(2) span{animation-delay:2.35s}
+@keyframes rise{to{transform:none}}
+.hero p{max-width:34em;font-size:clamp(.92rem,1.5vw,1.02rem);color:rgba(255,255,255,.88)}
+.fade-in{opacity:0;animation:fade 1s var(--ease) forwards}
+@keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 30px;border-radius:999px;font-weight:700;font-size:.92rem;letter-spacing:.08em;transition:transform .35s var(--ease),background .3s,color .3s,border-color .3s}
+.btn svg{width:16px;height:16px;transition:transform .35s var(--ease)}
+.btn:hover{transform:translateY(-3px)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-primary{background:var(--water);color:#fff}
+.btn-primary:hover{background:#0fa3c6}
+.btn-ghost{border:1px solid rgba(255,255,255,.5);color:#fff}
+.btn-ghost:hover{background:#fff;color:var(--ink);border-color:#fff}
+.scroll-cue{position:absolute;right:28px;bottom:36px;font-family:var(--latin);font-size:.68rem;letter-spacing:.3em;writing-mode:vertical-rl;display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.8)}
+.scroll-cue::after{content:"";width:1px;height:64px;background:linear-gradient(#fff,#fff) no-repeat rgba(255,255,255,.25);background-size:100% 40%;animation:cue 2s ease-in-out infinite}
+@keyframes cue{0%{background-position:0 -30px}100%{background-position:0 70px}}
+
+/* marquee */
+.marquee{background:var(--ink);color:rgba(255,255,255,.14);overflow:hidden;padding:18px 0;border-top:1px solid rgba(255,255,255,.08)}
+.marquee-track{display:flex;width:max-content;animation:marquee 38s linear infinite}
+.marquee span{font-family:var(--latin);font-weight:600;font-size:clamp(1.6rem,4vw,2.8rem);letter-spacing:.08em;white-space:nowrap;padding-right:.9em}
+.marquee span b{color:var(--water);font-weight:600}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:clamp(80px,11vw,140px) 0}
+.sec-head{margin-bottom:clamp(40px,6vw,64px)}
+.sec-head .eyebrow{color:var(--water)}
+.sec-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,3.8vw,2.6rem);letter-spacing:.08em;line-height:1.5;margin-top:14px;color:var(--ink)}
+.sec-head p{margin-top:18px;max-width:40em;color:var(--muted)}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+
+/* services grid */
+.services{background:var(--paper);padding-bottom:0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.card{position:relative;background:var(--paper);padding:38px 32px 34px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;transition:color .4s}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(25,181,216,.22),transparent 60%),var(--ink);opacity:0;transition:opacity .45s}
+.card:hover::before{opacity:1}
+.card>*{position:relative}
+.card .no{font-family:var(--latin);font-size:.8rem;letter-spacing:.2em;color:var(--water)}
+.card h3{font-size:1.2rem;font-weight:700;letter-spacing:.08em;color:var(--ink);transition:color .4s}
+.card .en{font-family:var(--latin);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);transition:color .4s}
+.card:hover h3{color:#fff}.card:hover .en{color:var(--water-light)}
+
+/* features */
+.feature{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,6vw,84px);align-items:center}
+.feature+.feature{margin-top:clamp(80px,11vw,140px)}
+.feature.flip .feature-media{order:2}
+.feature-media{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:var(--mist)}
+.feature-media img{width:100%;height:118%;object-fit:cover;will-change:transform}
+.feature-media::after{content:"";position:absolute;inset:0;background:var(--ink);transform-origin:100% 50%;transition:transform 1.2s var(--ease)}
+.feature-media.in::after{transform:scaleX(0)}
+.feature-no{font-family:var(--latin);font-weight:300;font-size:clamp(3rem,7vw,5rem);line-height:1;color:var(--line)}
+.feature h3{font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:.08em;color:var(--ink);margin:6px 0 4px}
+.feature .target{font-size:.84rem;color:var(--water);font-weight:700;letter-spacing:.06em}
+.feature p{margin-top:18px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.chips li{padding:7px 18px;border:1px solid var(--line);border-radius:999px;font-size:.86rem;font-weight:500;background:var(--paper);transition:border-color .3s,color .3s,transform .3s var(--ease)}
+.chips li:hover{border-color:var(--water);color:var(--water);transform:translateY(-2px)}
+.steps{margin-top:24px;counter-reset:s;border-top:1px solid var(--line)}
+.steps li{counter-increment:s;display:flex;align-items:center;gap:18px;padding:13px 4px;border-bottom:1px solid var(--line);font-weight:500;transition:padding-left .35s var(--ease),background .3s}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--latin);font-size:.8rem;letter-spacing:.14em;color:var(--water)}
+.steps li:hover{padding-left:14px;background:var(--mist)}
+
+/* works */
+.works{background:var(--ink);color:#fff}
+.works .sec-head h2{color:#fff}
+.works .sec-head p{color:rgba(255,255,255,.65)}
+.works-grid{columns:3;column-gap:18px}
+.work{position:relative;border-radius:14px;overflow:hidden;background:var(--ink-2);break-inside:avoid;margin-bottom:18px;cursor:zoom-in}
+.work img{width:100%;height:auto;transition:transform 1.2s var(--ease),filter .6s}
+.work:hover img{transform:scale(1.07)}
+.work figcaption{position:absolute;inset:auto 0 0 0;padding:44px 18px 18px;background:linear-gradient(transparent,rgba(10,27,46,.9));font-size:.9rem;font-weight:700;letter-spacing:.06em;line-height:1.5}
+.work figcaption small{display:block;font-family:var(--latin);font-weight:400;font-size:.7rem;letter-spacing:.2em;color:var(--water-light)}
+
+/* before / after */
+.ba-block{margin-top:clamp(48px,7vw,84px)}
+.ba-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px 24px;flex-wrap:wrap;margin-bottom:20px}
+.ba-head h3{font-family:var(--serif);font-weight:500;font-size:clamp(1.3rem,2.6vw,1.7rem);letter-spacing:.1em}
+.ba-head p{font-size:.86rem;color:rgba(255,255,255,.65)}
+.ba{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:var(--ink-2);user-select:none;touch-action:pan-y}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba-before{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.ba-tag{position:absolute;top:16px;font-family:var(--latin);font-weight:500;font-size:.86rem;letter-spacing:.14em;color:#fff;background:rgba(10,27,46,.72);backdrop-filter:blur(6px);padding:6px 14px;border-radius:999px;display:flex;align-items:center;gap:8px}
+.ba-tag small{font-family:var(--sans);font-size:.72rem;letter-spacing:.06em;opacity:.8}
+.ba-tag.l{left:16px}.ba-tag.r{right:16px;background:var(--water)}
+.ba-handle{position:absolute;top:0;bottom:0;left:var(--pos);width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 18px rgba(0,0,0,.45)}
+.ba-handle i{position:absolute;top:50%;left:50%;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.35);transition:transform .3s var(--ease)}
+.ba-handle i::before,.ba-handle i::after{content:"";position:absolute;top:50%;width:8px;height:8px;margin-top:-4px;border-top:2px solid var(--ink);border-left:2px solid var(--ink)}
+.ba-handle i::before{left:11px;transform:rotate(-45deg)}
+.ba-handle i::after{right:11px;transform:rotate(135deg)}
+.ba:hover .ba-handle i{transform:scale(1.1)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.ba input:focus-visible~.x,.ba:has(input:focus-visible){outline:2px solid var(--water-light);outline-offset:3px}
+
+/* area */
+.area-box{display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,6vw,80px);align-items:center}
+.count{font-family:var(--latin);font-weight:300;font-size:clamp(6rem,16vw,11rem);line-height:.9;color:var(--ink);display:flex;align-items:baseline;gap:10px}
+.count small{font-family:var(--serif);font-size:.22em;letter-spacing:.1em;color:var(--water)}
+.prefs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.prefs li{padding:20px 12px;text-align:center;border:1px solid var(--line);border-radius:12px;font-family:var(--serif);font-size:1.1rem;letter-spacing:.2em;transition:background .4s,color .4s,border-color .4s,transform .4s var(--ease)}
+.prefs li:hover,.prefs li.home{background:var(--ink);color:#fff;border-color:var(--ink)}
+.prefs li:hover{transform:translateY(-4px)}
+.prefs li.home{position:relative}
+.prefs li.home::after{content:"本社";position:absolute;top:-10px;right:-6px;background:var(--water);color:#fff;font-family:var(--sans);font-size:.66rem;font-weight:700;letter-spacing:.1em;padding:1px 9px;border-radius:999px}
+
+/* contact */
+.contact{position:relative;background:linear-gradient(135deg,var(--ink) 0%,var(--ink-2) 100%);color:#fff;text-align:center;overflow:hidden}
+.contact::before,.contact::after{content:"";position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(25,181,216,.35),transparent 65%);width:520px;height:520px;animation:drift 14s ease-in-out infinite alternate}
+.contact::before{top:-220px;left:-140px}
+.contact::after{bottom:-260px;right:-120px;animation-delay:-7s}
+@keyframes drift{to{transform:translate(60px,40px) scale(1.15)}}
+.contact .wrap{position:relative;z-index:1}
+.contact .wm{position:absolute;right:-70px;top:30px;width:min(460px,70vw);height:auto;opacity:.05;pointer-events:none}
+.contact .eyebrow{justify-content:center;color:var(--water-light)}
+.contact .eyebrow::before{display:none}
+.contact h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,3.4vw,2.3rem);letter-spacing:.08em;margin:14px 0 10px}
+.contact p{color:rgba(255,255,255,.75)}
+.bigtel{display:inline-block;font-family:var(--latin);font-weight:300;font-size:clamp(2.6rem,9vw,5.6rem);letter-spacing:.04em;line-height:1.2;margin:26px 0 8px;background:linear-gradient(90deg,#fff 0%,var(--water-light) 50%,#fff 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s linear infinite}
+@keyframes shine{to{background-position:-200% 0}}
+.or{display:flex;align-items:center;gap:18px;max-width:720px;margin:34px auto 30px;font-size:.82rem;letter-spacing:.14em;color:rgba(255,255,255,.6)}
+.or::before,.or::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.18)}
+.form{max-width:720px;margin-inline:auto;text-align:left;padding:clamp(22px,4vw,40px);border:1px solid rgba(255,255,255,.14);border-radius:18px;background:rgba(255,255,255,.05);backdrop-filter:blur(8px)}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.field{display:block;margin-bottom:18px}
+.field>span{display:block;font-size:.82rem;font-weight:700;letter-spacing:.06em;margin-bottom:6px;color:rgba(255,255,255,.9)}
+.field em{font-style:normal;font-size:.66rem;font-weight:700;background:var(--water);color:#fff;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.field input,.field select,.field textarea{width:100%;font:inherit;font-size:1rem;line-height:1.6;color:#fff;background:rgba(10,27,46,.55);border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:12px 14px;transition:border-color .3s,box-shadow .3s,background .3s}
+.field textarea{resize:vertical;min-height:140px}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%238fe3f5' stroke-width='1.6'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:12px}
+.field select option{color:#111;background:#fff}
+.field ::placeholder{color:rgba(255,255,255,.4)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--water-light);box-shadow:0 0 0 4px rgba(25,181,216,.25);background:rgba(10,27,46,.8)}
+.field .bad{border-color:#ff9c8a;box-shadow:0 0 0 4px rgba(255,120,100,.18)}
+.field .err{display:block;font-size:.78rem;color:#ffb3a5;margin-top:5px}
+.form .hp{position:absolute;left:-9999px;opacity:0}
+.form .note{font-size:.78rem;color:rgba(255,255,255,.6);margin-bottom:20px}
+.form .btn{border:0;cursor:pointer;font-family:inherit;width:100%;justify-content:center}
+.form .btn[disabled]{opacity:.6;cursor:progress;transform:none}
+.status{margin-top:16px;font-size:.9rem;font-weight:500;text-align:center;min-height:1.6em}
+.status.ok{color:var(--water-light)}
+.status.ng{color:#ffb3a5}
+.status a{border-bottom:1px solid currentColor}
+.form.sent>*:not(.status){display:none}
+.form.sent .status{font-size:1.05rem;padding:30px 0;line-height:2}
+@media (max-width:640px){.form .row{grid-template-columns:1fr}}
+.addr{margin-top:34px;font-style:normal;font-size:.92rem;color:rgba(255,255,255,.75)}
+.addr a{color:var(--water-light);border-bottom:1px solid currentColor;margin-left:8px}
+
+/* strengths */
+.strength{background:var(--mist)}
+.strength-box{display:grid;grid-template-columns:300px 1fr;gap:clamp(28px,6vw,80px);align-items:center}
+.mascot-stage{position:relative;display:grid;place-items:center;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 40%,#fff 0%,#fff 55%,rgba(255,255,255,0) 72%)}
+.mascot-stage::before{content:"";position:absolute;inset:6%;border:1px dashed rgba(25,181,216,.5);border-radius:50%;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.mascot-stage img{position:relative;height:78%;width:auto;filter:drop-shadow(0 14px 14px rgba(10,27,46,.18));animation:bob 3.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.bubble{position:absolute;top:2%;right:-4%;background:var(--ink);color:#fff;font-weight:700;font-size:.9rem;letter-spacing:.1em;padding:8px 18px;border-radius:999px;transform-origin:0 100%;animation:pop 3.6s ease-in-out infinite}
+.bubble::after{content:"";position:absolute;left:22px;bottom:-7px;border:8px solid transparent;border-top-color:var(--ink);border-bottom:0;border-left-width:4px}
+@keyframes pop{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg) scale(1.04)}}
+.points{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.point{background:var(--paper);border-radius:16px;padding:28px 26px;border:1px solid var(--line);transition:transform .45s var(--ease),box-shadow .45s,border-color .45s}
+.point:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(10,27,46,.1);border-color:var(--water)}
+.point .no{font-family:var(--latin);font-weight:300;font-size:2.2rem;line-height:1;color:var(--water)}
+.point h3{font-size:1.08rem;font-weight:700;letter-spacing:.06em;color:var(--ink);margin:12px 0 6px}
+.point p{font-size:.9rem;color:var(--muted);line-height:1.8}
+
+.about{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(28px,6vw,80px);align-items:start;margin-bottom:clamp(48px,7vw,84px)}
+.about .sec-head{margin-bottom:0}
+.catch{font-family:var(--serif);font-size:clamp(1.05rem,2vw,1.3rem);letter-spacing:.1em;line-height:2;color:var(--ink)!important;border-left:3px solid var(--water);padding-left:18px;margin-top:26px!important}
+.about-text p{font-size:1rem;line-height:2.2}
+.about-text p+p{margin-top:1.2em}
+
+/* company */
+.company-box{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.profile div{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:20px 4px;border-bottom:1px solid var(--line);transition:background .3s}
+.profile div:first-child{border-top:1px solid var(--line)}
+.profile div:hover{background:var(--mist)}
+.profile dt{font-weight:700;color:var(--ink);letter-spacing:.08em;font-size:.92rem;position:relative;padding-left:14px}
+.profile dt::before{content:"";position:absolute;left:0;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--water)}
+.profile dd{font-size:.94rem;line-height:1.9}
+.profile a{border-bottom:1px solid var(--line);transition:color .3s,border-color .3s}
+.profile a:hover{color:var(--water);border-color:var(--water)}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.08em;line-height:1.7;color:#fff;background:var(--ink);border-radius:4px;padding:0 8px;margin-right:8px;vertical-align:1px}
+.access{position:sticky;top:90px}
+.access h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;letter-spacing:.1em;color:var(--ink)}
+.access p{font-size:.92rem;margin:8px 0 18px}
+.map{border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:var(--mist);border:1px solid var(--line)}
+.map iframe{width:100%;height:100%;border:0;display:block;filter:saturate(.85)}
+
+/* faq */
+.faq{background:var(--mist)}
+.qa-list{max-width:860px;margin-inline:auto;display:grid;gap:12px}
+.qa{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .3s,box-shadow .3s,opacity 1s var(--ease),transform 1s var(--ease)}
+.qa[open],.qa:hover{border-color:var(--water);box-shadow:0 10px 30px rgba(10,27,46,.07)}
+.qa summary{display:flex;align-items:center;gap:16px;padding:20px 22px;cursor:pointer;font-weight:700;color:var(--ink);letter-spacing:.04em;list-style:none}
+.qa summary::-webkit-details-marker{display:none}
+.qa .q{flex:none;font-family:var(--latin);font-weight:500;font-size:1.2rem;line-height:1;color:var(--water);width:22px}
+.qa summary i{margin-left:auto;flex:none;position:relative;width:16px;height:16px}
+.qa summary i::before,.qa summary i::after{content:"";position:absolute;left:0;top:7px;width:16px;height:2px;background:var(--ink);transition:transform .35s var(--ease)}
+.qa summary i::after{transform:rotate(90deg)}
+.qa[open] summary i::after{transform:rotate(0)}
+.qa .a{display:flex;gap:16px;padding:0 22px 22px;animation:fade .5s var(--ease)}
+.qa .a .q{color:var(--ink);padding-top:.35em}
+.qa .a p{font-size:.94rem}
+.form-lead{font-size:.92rem;margin-bottom:10px}
+
+/* flow */
+.flow{background:var(--mist)}
+.flow-list{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:f;position:relative}
+.flow-list::before{content:"";position:absolute;left:8%;right:8%;top:34px;height:2px;background:var(--line)}
+.flow-list::after{content:"";position:absolute;left:8%;top:34px;height:2px;width:0;background:var(--water);transition:width 2.2s var(--ease) .3s}
+.flow-list.in::after{width:84%}
+.flow-list li{position:relative;z-index:1;text-align:center;counter-increment:f;opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i)*.35s)}
+.flow-list.in li{opacity:1;transform:none}
+.flow-list li::before{content:counter(f,decimal-leading-zero);display:grid;place-items:center;width:68px;height:68px;margin:0 auto 18px;border-radius:50%;background:var(--ink);color:#fff;font-family:var(--latin);font-size:1.1rem;letter-spacing:.08em;box-shadow:0 0 0 8px var(--mist)}
+.flow-list h3{font-size:1.05rem;font-weight:700;letter-spacing:.08em;color:var(--ink)}
+.flow-list p{font-size:.86rem;color:var(--muted);line-height:1.8;margin-top:6px;padding:0 6px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(6,18,31,.94);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .35s}
+.lb.open{opacity:1;pointer-events:auto}
+.lb figure{max-width:min(1100px,92vw);text-align:center;color:#fff}
+.lb img{max-width:100%;max-height:78vh;margin-inline:auto;border-radius:10px;transform:scale(.96);transition:transform .45s var(--ease)}
+.lb.open img{transform:none}
+.lb figcaption{margin-top:14px;font-weight:700;letter-spacing:.08em;font-size:.95rem}
+.lb button{position:absolute;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.06);color:#fff;font-size:1.3rem;line-height:1;cursor:pointer;transition:background .3s}
+.lb button:hover{background:var(--water);border-color:var(--water)}
+.lb .x{top:18px;right:18px}.lb .prev{left:18px;top:50%;margin-top:-24px}.lb .next{right:18px;top:50%;margin-top:-24px}
+
+/* contact helper mascot */
+.helper{position:relative;max-width:720px;margin:0 auto -6px;height:150px;pointer-events:none}
+.helper img{position:absolute;right:26px;bottom:-8px;height:160px;width:auto;transform-origin:50% 100%;animation:sway 2.8s ease-in-out infinite;filter:drop-shadow(0 8px 10px rgba(0,0,0,.35))}
+@keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg) translateY(-4px)}}
+.helper p{position:absolute;right:170px;bottom:70px;background:#fff;color:var(--ink);font-weight:700;font-size:.92rem;letter-spacing:.06em;padding:10px 20px;border-radius:999px}
+.helper p::after{content:"";position:absolute;right:-8px;top:50%;margin-top:-6px;border:6px solid transparent;border-left:10px solid #fff;border-right:0}
+.group{border:0;margin-bottom:22px;min-width:0}
+.group legend{font-size:.82rem;font-weight:700;letter-spacing:.06em;margin-bottom:10px;color:rgba(255,255,255,.9)}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px}
+.check{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:.92rem;line-height:1.5;color:rgba(255,255,255,.92)}
+.check input{appearance:none;-webkit-appearance:none;width:20px;height:20px;flex:none;border:1px solid rgba(255,255,255,.4);border-radius:5px;background:rgba(10,27,46,.55);display:grid;place-content:center;cursor:pointer;transition:background .2s,border-color .2s,box-shadow .2s}
+.check input::after{content:"";width:10px;height:6px;margin-top:-2px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) scale(0);transition:transform .2s}
+.check input:checked{background:var(--water);border-color:var(--water)}
+.check input:checked::after{transform:rotate(-45deg) scale(1)}
+.check input:focus-visible{outline:0;box-shadow:0 0 0 4px rgba(25,181,216,.35)}
+.check input.bad{border-color:#ff9c8a}
+.form .err{display:block;font-size:.78rem;color:#ffb3a5;margin-top:6px}
+.field em.opt{background:rgba(255,255,255,.2)}
+.group em{font-style:normal;font-size:.66rem;font-weight:700;background:var(--water);color:#fff;border-radius:4px;padding:1px 7px;margin-left:6px}
+.policy{display:inline-block;font-size:.86rem;color:var(--water-light);border-bottom:1px solid currentColor;margin-bottom:14px}
+.consent{margin-bottom:22px;flex-wrap:wrap}
+.consent .err{flex-basis:100%;margin-top:0}
+
+footer{background:#06121f;color:rgba(255,255,255,.55);font-size:.78rem;padding:26px 0}
+footer{padding:56px 0 26px}
+.f-main{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(24px,5vw,64px);align-items:center}
+.f-logo img{width:150px;height:auto;opacity:.92;transition:opacity .3s,transform .5s var(--ease)}
+.f-logo:hover img{opacity:1;transform:scale(1.04)}
+.f-info{font-style:normal;font-size:.84rem;line-height:1.9}
+.f-info strong{display:block;font-family:var(--serif);font-weight:600;font-size:1.05rem;letter-spacing:.12em;color:#fff;margin-bottom:6px}
+.f-info a{color:#fff}
+.f-nav{display:grid;grid-template-columns:auto auto;gap:6px 30px;font-size:.84rem}
+.f-nav a{transition:color .3s}.f-nav a:hover{color:var(--water-light)}
+.f-copy{margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-family:var(--latin);letter-spacing:.08em;text-align:center}
+
+.callbar{display:none}
+
+@media (max-width:860px){
+  .burger{display:block;z-index:2}
+  .nav{position:fixed;inset:0;background:var(--ink);color:#fff;flex-direction:column;justify-content:center;gap:30px;font-size:1.1rem;opacity:0;pointer-events:none;transition:opacity .4s}
+  .menu-open .nav{opacity:1;pointer-events:auto}
+  .menu-open .header{color:#fff;background:none;box-shadow:none;backdrop-filter:none}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .card{padding:26px 20px;min-height:150px}
+  .card h3{font-size:1rem}
+  .feature{grid-template-columns:1fr}
+  .feature.flip .feature-media{order:0}
+  .works-grid{columns:2;column-gap:12px}
+  .work{margin-bottom:12px}
+  .work figcaption{font-size:.78rem;padding:30px 12px 12px}
+  .strength-box{grid-template-columns:1fr}
+  .about,.company-box{grid-template-columns:1fr}
+  .access{position:static}
+  .profile div{grid-template-columns:96px 1fr;gap:10px}
+  .qa summary{padding:16px}
+  .qa .a{padding:0 16px 18px}
+  .mascot-stage{width:min(260px,70%);margin-inline:auto}
+  .points{grid-template-columns:1fr}
+  .flow-list{grid-template-columns:1fr;gap:26px}
+  .flow-list::before,.flow-list::after{display:none}
+  .flow-list li{display:grid;grid-template-columns:68px 1fr;column-gap:18px;text-align:left;align-items:center}
+  .flow-list li::before{margin:0;grid-row:span 2}
+  .flow-list p{padding:0}
+  .hero-dots{bottom:28px}
+  .hero-dots .cap{display:none}
+  .helper{height:120px}
+  .helper img{height:120px;right:10px}
+  .helper p{right:120px;bottom:48px;font-size:.82rem;padding:8px 14px}
+  .checks{grid-template-columns:1fr}
+  .lb .prev{left:8px}.lb .next{right:8px}
+  .ba{aspect-ratio:4/3}
+  .ba-tag{top:10px;font-size:.74rem;padding:4px 10px}
+  .ba-tag.l{left:10px}.ba-tag.r{right:10px}
+  .ba-handle i{width:40px;height:40px;margin:-20px 0 0 -20px}
+  .ba-handle i::before{left:8px}.ba-handle i::after{right:8px}
+  .area-box{grid-template-columns:1fr}
+  .prefs li{padding:16px 6px;font-size:1rem}
+  .scroll-cue{display:none}
+  .hero-inner{padding-bottom:100px}
+  .callbar{display:flex;position:fixed;left:14px;right:14px;bottom:14px;z-index:90;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:999px;background:var(--water);color:#fff;font-weight:700;letter-spacing:.06em;box-shadow:0 10px 30px rgba(10,27,46,.35);transform:translateY(120%);transition:transform .5s var(--ease)}
+  .callbar.show{transform:none}
+  .callbar b{font-family:var(--latin);font-weight:500;font-size:1.1rem}
+  footer{padding-bottom:90px}
+  .f-main{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .f-logo img{width:130px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .reveal,.flow-list li{opacity:1;transform:none}
+  .marquee-track{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="intro" aria-hidden="true"><img src="logo-white.png" width="500" height="500" alt=""></div>
+<div class="progress" id="progress"></div>
+
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="#top" class="brand"><span class="mark"><img class="w" src="logo-mark-white.png" alt=""><img class="k" src="logo-mark-black.png" alt=""></span>株式会社宮城清掃</a>
+    <nav class="nav" id="nav">
+      <a href="#top">ホーム</a>
+      <a href="#feature">特徴</a>
+      <a href="#services">サービス</a>
+      <a href="#works">事例</a>
+      <a href="#company">会社概要</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#contact">お問い合わせ</a>
+      <a href="tel:022-257-3986" class="tel">022-257-3986</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="hero-img">
+      <div class="slide on" data-cap="仙台市街"></div>
+      <div class="slide" data-cap="高層ビル 窓ガラス清掃" style="background-image:url(rope-3.jpg)"></div>
+      <div class="slide" data-cap="エントランス ガラス清掃" style="background-image:url(team-pole.jpg)"></div>
+    </div>
+    <div class="hero-fog" aria-hidden="true"></div>
+    <div class="squeegee" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="eyebrow fade-in" style="animation-delay:2.1s">Miyagi Seiso — Sendai</div>
+      <h1>
+        <span class="ln"><span>快適な環境をお届けする</span></span>
+        <span class="ln"><span>清掃のプロフェッショナル</span></span>
+      </h1>
+      <p class="fade-in" style="animation-delay:2.8s">法人・個人問わず、ビルの定期清掃、マンションなどの高所窓ガラス清掃、エアコン分解・クリーニングなど承ります。</p>
+      <div class="hero-cta fade-in" style="animation-delay:3s">
+        <a href="#contact" class="btn btn-primary">お問い合わせはこちら
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        <a href="#services" class="btn btn-ghost">業務内容を見る</a>
+      </div>
+    </div>
+    <div class="hero-dots" id="dots"></div>
+    <div class="scroll-cue" aria-hidden="true">SCROLL</div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marquee">
+      <span>BUILDING MAINTENANCE <b>/</b> WINDOW CLEANING <b>/</b> AIR CONDITIONER <b>/</b> FLOOR <b>/</b> CARPET <b>/</b> EXTERIOR WALL <b>/</b></span>
+    </div>
+  </div>
+
+  <section class="strength" id="feature">
+    <div class="wrap">
+      <div class="about">
+        <div class="sec-head reveal">
+          <div class="eyebrow">Feature</div>
+          <h2>宮城清掃が<br>選ばれる理由</h2>
+          <p class="catch">技術・安全・柔軟性<br>建物の資産価値と快適さを支える</p>
+        </div>
+        <div class="about-text reveal" style="--d:.15s">
+          <p>ビルや施設の美観・衛生環境は、建物そのものの価値、そこで過ごす人々・訪れるお客様の満足度に直結します。</p>
+          <p>弊社は、宮城県仙台市を拠点に、高所清掃をはじめとする専門性の高い現場に数多く携わってまいりました。</p>
+          <p>自社設備と高度な技術、そして徹底した安全管理を強みに、規模や場所を問わず柔軟に対応いたします。</p>
+        </div>
+      </div>
+      <div class="strength-box">
+        <div class="mascot-stage reveal">
+          <img src="mascot-arms.png" alt="宮城清掃のキャラクター" width="222" height="439">
+          <span class="bubble">安全第一！</span>
+        </div>
+        <div class="points">
+          <div class="point reveal"><div class="no">01</div><h3>安全第一の管理体制</h3><p>高所作業をはじめ、すべての現場で安全を最優先に作業に取り組みます。</p></div>
+          <div class="point reveal" style="--d:.1s"><div class="no">02</div><h3>高所作業車を自社所有</h3><p>ゴンドラ・ブランコ・ローリングタワーなど、建物に合わせた方法で対応します。</p></div>
+          <div class="point reveal" style="--d:.2s"><div class="no">03</div><h3>東北6県に対応</h3><p>仙台を拠点に、青森・岩手・宮城・秋田・山形・福島へ伺います。</p></div>
+          <div class="point reveal" style="--d:.3s"><div class="no">04</div><h3>法人・個人どちらも</h3><p>ビル・マンションから一般住宅まで、ニーズに合わせてご提案します。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Services</div>
+        <h2>サービス</h2>
+        <p>仙台市 宮城清掃は、細かいところまでしっかりと清掃します。お客様のニーズに合わせてご提案いたします。お気軽にご相談ください。</p>
+      </div>
+      <div class="grid">
+        <a href="#building" class="card reveal"><span class="no">01</span><div><h3>ビルの定期清掃</h3><span class="en">Building Maintenance</span></div></a>
+        <a href="#building" class="card reveal" style="--d:.08s"><span class="no">02</span><div><h3>フロアクリーニング</h3><span class="en">Floor Cleaning</span></div></a>
+        <a href="#aircon" class="card reveal" style="--d:.16s"><span class="no">03</span><div><h3>エアコンクリーニング</h3><span class="en">Air Conditioner</span></div></a>
+        <a href="#glass" class="card reveal"><span class="no">04</span><div><h3>ガラスクリーニング</h3><span class="en">Window Cleaning</span></div></a>
+        <a href="#building" class="card reveal" style="--d:.08s"><span class="no">05</span><div><h3>カーペットクリーニング</h3><span class="en">Carpet Cleaning</span></div></a>
+        <a href="#building" class="card reveal" style="--d:.16s"><span class="no">06</span><div><h3>外壁面洗浄クリーニング</h3><span class="en">Exterior Wall Washing</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <article class="feature" id="building">
+        <div class="feature-media reveal-media"><img data-parallax-img src="building.jpg" alt="ビルの定期清掃" loading="lazy"></div>
+        <div class="reveal">
+          <div class="feature-no">01</div>
+          <h3>ビルの定期清掃</h3>
+          <div class="target">法人・個人問わず承ります</div>
+          <p>床面ワックス掛け、カーペット清掃、共用部高圧洗浄など、日常のお手入れでは届かない汚れをリセット。建物の資産価値を維持します。</p>
+          <ul class="chips"><li>定期清掃</li><li>フロア</li><li>カーペット</li><li>外壁面洗浄</li></ul>
+        </div>
+      </article>
+
+      <article class="feature flip" id="glass">
+        <div class="feature-media reveal-media"><img data-parallax-img src="rope-window.jpg" alt="高層ビルでのブランコ作業による窓ガラス清掃" loading="lazy"></div>
+        <div class="reveal">
+          <div class="feature-no">02</div>
+          <h3>高所窓ガラス清掃</h3>
+          <div class="target">ビル・アパート・マンション・店舗・事務所・工場等</div>
+          <p>ブランコ・ゴンドラ・高所作業車など、現場に合わせた最適な手法で安全・確実に美しさを取り戻します。定期的なガラス清掃は、衛生管理・職場環境の向上にも役立ちます。</p>
+          <ul class="chips"><li>ゴンドラ作業</li><li>高所作業車</li><li>ブランコ作業</li><li>ローリングタワー</li><li>その他</li></ul>
+        </div>
+      </article>
+
+      <article class="feature" id="aircon">
+        <div class="feature-media reveal-media"><img data-parallax-img src="aircon.jpg" alt="エアコンクリーニング" loading="lazy"></div>
+        <div class="reveal">
+          <div class="feature-no">03</div>
+          <h3>エアコン分解・清掃</h3>
+          <div class="target">一般住宅・アパート・マンション・店舗・事務所・工場等</div>
+          <p>業務用の大型エアコンから家庭用まで、内部のアルミフィン・配管まで徹底洗浄。空気環境の改善と省エネに貢献します。</p>
+          <ol class="steps"><li>フィルター</li><li>パネル、カバー</li><li>アルミフィン</li><li>配管内清掃</li><li>クリーニング後試運転調整</li></ol>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="works" id="works">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow" style="color:var(--water-light)">Case</div>
+        <h2>事例</h2>
+        <p>幅広くお仕事を承ります。</p>
+      </div>
+      <div class="works-grid" id="gallery">
+        <figure class="work reveal" style="--d:0.0s" tabindex="0" role="button" aria-label="高層ビル 窓ガラス清掃（ブランコ作業）を拡大"><img src="rope-3.jpg" width="1600" height="1200" alt="高層ビルでのブランコ作業" loading="lazy"><figcaption><small>01</small>高層ビル 窓ガラス清掃（ブランコ作業）</figcaption></figure>
+        <figure class="work reveal" style="--d:0.1s" tabindex="0" role="button" aria-label="マンション共用部 高圧洗浄を拡大"><img src="pressure-wash.jpg" width="720" height="960" alt="マンション共用部の高圧洗浄" loading="lazy"><figcaption><small>02</small>マンション共用部 高圧洗浄</figcaption></figure>
+        <figure class="work reveal" style="--d:0.2s" tabindex="0" role="button" aria-label="エントランス ガラス清掃を拡大"><img src="team-pole.jpg" width="1600" height="1200" alt="ポールを使ったエントランスのガラス清掃" loading="lazy"><figcaption><small>03</small>エントランス ガラス清掃</figcaption></figure>
+        <figure class="work reveal" style="--d:0.0s" tabindex="0" role="button" aria-label="はしご作業によるガラス清掃を拡大"><img src="ladder.jpg" width="1400" height="1050" alt="はしごを使ったガラス清掃" loading="lazy"><figcaption><small>04</small>はしご作業によるガラス清掃</figcaption></figure>
+        <figure class="work reveal" style="--d:0.1s" tabindex="0" role="button" aria-label="高所作業車作業（自社所有）を拡大"><img src="lift-truck.jpg" width="720" height="960" alt="自社所有の高所作業車による作業" loading="lazy"><figcaption><small>05</small>高所作業車作業（自社所有）</figcaption></figure>
+        <figure class="work reveal" style="--d:0.2s" tabindex="0" role="button" aria-label="ガラス面の仕上げ作業を拡大"><img src="glass-finish.jpg" width="1400" height="1054" alt="スクイージーでガラス面を仕上げる作業" loading="lazy"><figcaption><small>06</small>ガラス面の仕上げ作業</figcaption></figure>
+        <figure class="work reveal" style="--d:0.0s" tabindex="0" role="button" aria-label="高所オブジェ・照明清掃を拡大"><img src="high-object.jpg" width="720" height="960" alt="高所オブジェ・照明の清掃" loading="lazy"><figcaption><small>07</small>高所オブジェ・照明清掃</figcaption></figure>
+        <figure class="work reveal" style="--d:0.1s" tabindex="0" role="button" aria-label="高所ガラス面の清掃を拡大"><img src="ladder-below.jpg" width="1400" height="1050" alt="高所のガラス面を清掃する様子" loading="lazy"><figcaption><small>08</small>高所ガラス面の清掃</figcaption></figure>
+        <figure class="work reveal" style="--d:0.2s" tabindex="0" role="button" aria-label="インターロッキング清掃を拡大"><img src="paving.jpg" width="1235" height="1400" alt="洗浄後の舗装タイル" loading="lazy"><figcaption><small>09</small>インターロッキング清掃</figcaption></figure>
+        <figure class="work reveal" style="--d:0.0s" tabindex="0" role="button" aria-label="グリストラップ清掃を拡大"><img src="grease-trap.jpg" width="720" height="960" alt="グリストラップ清掃" loading="lazy"><figcaption><small>10</small>グリストラップ清掃</figcaption></figure>
+      </div>
+      <div class="ba-block reveal">
+        <div class="ba-head">
+          <h3>グリストラップ清掃</h3>
+          <p>中央のつまみを左右に動かすと、清掃前と清掃後を見比べられます。</p>
+        </div>
+        <div class="ba" id="ba" style="--pos:50%">
+          <img src="grease-after.jpg" width="1600" height="900" alt="清掃後のグリストラップ" loading="lazy">
+          <img class="ba-before" src="grease-before.jpg" width="1600" height="900" alt="清掃前のグリストラップ" loading="lazy">
+          <span class="ba-tag l">Before<small>清掃前</small></span>
+          <span class="ba-tag r">After<small>清掃後</small></span>
+          <div class="ba-handle" aria-hidden="true"><i></i></div>
+          <input type="range" min="0" max="100" value="50" step="0.1" aria-label="清掃前と清掃後の比較位置">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="area">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Service Area</div>
+        <h2>対応エリア</h2>
+      </div>
+      <div class="area-box">
+        <div class="count reveal"><span id="count" data-to="6">0</span><small>県対応<br>東北全域</small></div>
+        <ul class="prefs">
+          <li class="reveal">青森県</li>
+          <li class="reveal" style="--d:.06s">岩手県</li>
+          <li class="reveal home" style="--d:.12s">宮城県</li>
+          <li class="reveal" style="--d:.18s">秋田県</li>
+          <li class="reveal" style="--d:.24s">山形県</li>
+          <li class="reveal" style="--d:.3s">福島県</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="flow" id="flow">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Flow</div>
+        <h2>ご依頼の流れ</h2>
+      </div>
+      <ol class="flow-list reveal-media">
+        <li style="--i:0"><h3>お問い合わせ</h3><p>お電話またはフォームからご連絡ください。</p></li>
+        <li style="--i:1"><h3>現地確認・お見積り</h3><p>建物の状況を確認し、内容と金額をご提案します。</p></li>
+        <li style="--i:2"><h3>清掃作業</h3><p>安全第一で、細かいところまでしっかりと。</p></li>
+        <li style="--i:3"><h3>完了のご報告</h3><p>仕上がりをご確認いただき、作業完了です。</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="company" id="company">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Company</div>
+        <h2>会社概要</h2>
+      </div>
+      <div class="company-box">
+        <dl class="profile reveal">
+          <div><dt>会社名</dt><dd>株式会社宮城清掃</dd></div>
+          <div><dt>所在地</dt><dd><span class="tag">本社</span>〒983-0833 宮城県仙台市宮城野区東仙台4-3-33<br><span class="tag">事務所</span>〒983-0833 宮城県仙台市宮城野区東仙台4-3-12 リバーサイドフジカワ1階</dd></div>
+          <div><dt>連絡先</dt><dd>TEL <a href="tel:022-257-3986">022-257-3986</a><br>FAX 022-256-2776<br>E-Mail <a href="mailto:info@miyagi-seiso.co.jp">info@miyagi-seiso.co.jp</a></dd></div>
+          <div><dt>代表者</dt><dd>代表取締役　髙橋 洋</dd></div>
+          <div><dt>資本金</dt><dd>300万円</dd></div>
+          <div><dt>事業内容</dt><dd>建物総合管理、看板、リフォーム、高所作業車オペ付きレンタル、自社物件賃貸、その他建物に関する業務</dd></div>
+          <div><dt>主要取引先</dt><dd>七十七銀行、仙台銀行、宮城第一信用金庫、古川信用組合</dd></div>
+        </dl>
+        <div class="access reveal" style="--d:.15s">
+          <h3>アクセス</h3>
+          <p>〒983-0833<br>宮城県仙台市宮城野区東仙台 4-3-12 リバーサイドフジカワ1階</p>
+          <div class="map"><iframe title="株式会社宮城清掃の地図" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3132.2425922725483!2d140.91110709999998!3d38.273869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8987bfa73c6e53%3A0x2e31a3f79820e706!2z44ix5a6u5Z-O5riF5o6D!5e0!3m2!1sja!2sjp!4v1789484766998!5m2!1sja!2sjp"></iframe></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Q&amp;A</div>
+        <h2>よくある質問</h2>
+      </div>
+      <div class="qa-list">
+        <details class="qa reveal"><summary><span class="q">Q</span>株式会社宮城清掃はどんな会社ですか？<i></i></summary><div class="a"><span class="q">A</span><p>宮城県仙台市を拠点に、高所清掃をはじめとする専門性の高い現場に数多く携わってきた清掃会社です。自社設備と技術、徹底した安全管理を強みに、規模や場所を問わず柔軟に対応いたします。</p></div></details>
+        <details class="qa reveal"><summary><span class="q">Q</span>対応エリアを教えてください。<i></i></summary><div class="a"><span class="q">A</span><p>青森県・岩手県・宮城県・秋田県・山形県・福島県の東北6県に対応しています。</p></div></details>
+        <details class="qa reveal"><summary><span class="q">Q</span>個人宅でも依頼できますか？<i></i></summary><div class="a"><span class="q">A</span><p>はい。法人・個人を問わず承ります。エアコン分解・清掃は一般住宅にも対応しています。</p></div></details>
+        <details class="qa reveal"><summary><span class="q">Q</span>どのような建物に対応していますか？<i></i></summary><div class="a"><span class="q">A</span><p>ビル・アパート・マンション・店舗・事務所・工場などに対応しています。</p></div></details>
+        <details class="qa reveal"><summary><span class="q">Q</span>高所の窓ガラスはどのように清掃しますか？<i></i></summary><div class="a"><span class="q">A</span><p>ゴンドラ、高所作業車、ブランコ、ローリングタワーなど、現場に合わせた方法で、安全第一の管理体制のもと作業します。</p></div></details>
+        <details class="qa reveal"><summary><span class="q">Q</span>エアコンの清掃ではどこまで洗浄しますか？<i></i></summary><div class="a"><span class="q">A</span><p>フィルター、パネル・カバー、アルミフィン、配管内を清掃し、クリーニング後に試運転調整を行います。</p></div></details>
+        <details class="qa reveal"><summary><span class="q">Q</span>見積りや相談はどうすればよいですか？<i></i></summary><div class="a"><span class="q">A</span><p>お電話（022-257-3986）またはお問い合わせフォームからご連絡ください。フォームからのお問い合わせには、内容を確認のうえ3営業日以内にご連絡いたします。</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <img class="wm" src="logo-mark-white.png" alt="" aria-hidden="true" loading="lazy">
+    <div class="wrap">
+      <div class="eyebrow reveal">Contact</div>
+      <h2 class="reveal">お問い合わせ</h2>
+      <p class="reveal">お電話でのお問い合わせはこちらから</p>
+      <a href="tel:022-257-3986" class="bigtel reveal">022-257-3986</a>
+
+      <div class="or reveal"><span>またはフォームから</span></div>
+      <p class="form-lead reveal">ご相談やご質問など、下記フォームよりお気軽にご相談ください。<br>内容を確認し、3営業日以内にご連絡差し上げます。</p>
+
+      <div class="helper reveal" aria-hidden="true">
+        <p>お気軽にご相談ください！</p>
+        <img src="mascot-wave.png" alt="" width="389" height="468">
+      </div>
+      <form class="form reveal" id="form" novalidate>
+        <div class="row">
+          <label class="field"><span>お名前 <em>必須</em></span>
+            <input type="text" name="name" autocomplete="name" required maxlength="80" placeholder="田中 太郎"></label>
+          <label class="field"><span>メールアドレス <em>必須</em></span>
+            <input type="email" name="email" autocomplete="email" required maxlength="160" inputmode="email" placeholder="example@abc.com"></label>
+        </div>
+        <div class="row">
+          <label class="field"><span>会社名 <em class="opt">任意</em></span>
+            <input type="text" name="company" autocomplete="organization" maxlength="120" placeholder="株式会社○△□"></label>
+          <label class="field"><span>電話番号 <em class="opt">任意</em></span>
+            <input type="tel" name="phone" autocomplete="tel" maxlength="20" inputmode="tel" placeholder="000-123-4567"></label>
+        </div>
+        <div class="row">
+          <label class="field"><span>お取引状況 <em>必須</em></span>
+            <select name="status" required>
+              <option value="">選択してください</option>
+              <option>新規のお客様</option>
+              <option>現在お取引のあるお客様</option>
+              <option>以前お取引のあるお客様</option>
+            </select></label>
+          <label class="field"><span>お問い合わせ種別 <em>必須</em></span>
+            <select name="type" required>
+              <option value="">選択してください</option>
+              <option>見積をしてほしい</option>
+              <option>仕事の依頼をしたい</option>
+              <option>管理内容を見直したい</option>
+              <option>その他</option>
+            </select></label>
+        </div>
+        <fieldset class="group" id="svc-group">
+          <legend>ご希望のサービス内容（複数選択可） <em>必須</em></legend>
+          <div class="checks">
+            <label class="check"><input type="checkbox" name="services" value="床面ワックス掛け、カーペット清掃">床面ワックス掛け、カーペット清掃</label>
+            <label class="check"><input type="checkbox" name="services" value="マンション共用部清掃">マンション共用部清掃</label>
+            <label class="check"><input type="checkbox" name="services" value="高所窓ガラス清掃">高所窓ガラス清掃</label>
+            <label class="check"><input type="checkbox" name="services" value="外壁清掃">外壁清掃</label>
+            <label class="check"><input type="checkbox" name="services" value="エアコン分解・清掃">エアコン分解・清掃</label>
+            <label class="check"><input type="checkbox" name="services" value="グリストラップ清掃">グリストラップ清掃</label>
+            <label class="check"><input type="checkbox" name="services" value="その他">その他</label>
+          </div>
+        </fieldset>
+        <label class="field"><span>お問い合わせ内容 <em>必須</em></span>
+          <textarea name="message" rows="6" required maxlength="3000" placeholder="お問い合わせ内容は、こちらに記載ください"></textarea></label>
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <a href="privacy.html" target="_blank" rel="noopener" class="policy">プライバシーポリシーを開く ↗</a>
+        <label class="check consent"><input type="checkbox" name="consent" required>プライバシーポリシーに同意する</label>
+        <button type="submit" class="btn btn-primary" id="submit">送信する
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <address class="addr reveal">
+        株式会社宮城清掃<br>
+        〒983-0833 宮城県仙台市宮城野区東仙台 4-3-12 リバーサイドフジカワ1階
+        <a href="https://www.google.com/maps/search/?api=1&query=%E5%AE%AE%E5%9F%8E%E7%9C%8C%E4%BB%99%E5%8F%B0%E5%B8%82%E5%AE%AE%E5%9F%8E%E9%87%8E%E5%8C%BA%E6%9D%B1%E4%BB%99%E5%8F%B04-3-12" target="_blank" rel="noopener">地図を見る</a>
+      </address>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap f-main">
+    <a href="#top" class="f-logo"><img src="logo-white.png" width="500" height="500" alt="MIYAGI SEISO PROFESSIONAL CLEANING" loading="lazy"></a>
+    <address class="f-info">
+      <strong>株式会社宮城清掃</strong>
+      〒983-0833 宮城県仙台市宮城野区東仙台 4-3-12<br>リバーサイドフジカワ1階<br>
+      TEL：<a href="tel:022-257-3986">022-257-3986</a>
+    </address>
+    <nav class="f-nav" aria-label="フッターメニュー">
+      <a href="#top">ホーム</a>
+      <a href="#feature">特徴</a>
+      <a href="#services">サービス</a>
+      <a href="#works">事例</a>
+      <a href="#company">会社概要</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#contact">お問い合わせ</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+  </div>
+  <div class="wrap f-copy">© <span id="year"></span> Miyagi Seiso Co., Ltd.</div>
+</footer>
+
+<a href="tel:022-257-3986" class="callbar" id="callbar">電話で相談する <b>022-257-3986</b></a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="写真の拡大表示" aria-hidden="true">
+  <button class="x" aria-label="閉じる">×</button>
+  <button class="prev" aria-label="前の写真">‹</button>
+  <figure><img src="" alt=""><figcaption></figcaption></figure>
+  <button class="next" aria-label="次の写真">›</button>
+</div>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  $('#year').textContent = new Date().getFullYear();
+
+  // marquee: duplicate for seamless loop
+  const mq = $('#marquee');
+  mq.innerHTML += mq.innerHTML;
+
+  // mobile menu
+  const burger = $('#burger');
+  const setMenu = open => {
+    document.body.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  };
+  burger.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+  $$('#nav a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+  // reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      if (e.target.querySelector('#count')) countUp($('#count'));
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
+  $$('.reveal, .reveal-media').forEach(el => io.observe(el));
+
+  function countUp(el) {
+    const to = +el.dataset.to;
+    if (reduce) { el.textContent = to; return; }
+    let n = 0;
+    const t = setInterval(() => { el.textContent = ++n; if (n >= to) clearInterval(t); }, 170);
+  }
+
+  // ---- contact form -------------------------------------------------
+  // Web3Forms (https://web3forms.com) のアクセスキーをここに貼ると送信が有効になります。
+  // このキーは公開されても問題ない種類のものです（届け先メールアドレスに紐づくだけ）。
+  const FORM_ACCESS_KEY = '';
+  const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
+
+  const form = $('#form'), statusEl = $('#status'), submitBtn = $('#submit');
+  const messages = {
+    name: 'お名前をご入力ください。',
+    email: 'メールアドレスを正しくご入力ください。',
+    message: 'お問い合わせ内容をご入力ください。',
+    status: 'お取引状況を選択してください。',
+    type: 'お問い合わせ種別を選択してください。',
+    consent: 'プライバシーポリシーへの同意が必要です。'
+  };
+  const setError = (el, msg) => {
+    el.classList.toggle('bad', !!msg);
+    el.setAttribute('aria-invalid', !!msg);
+    let e = el.parentElement.querySelector('.err');
+    if (msg && !e) { e = document.createElement('small'); e.className = 'err'; el.parentElement.append(e); }
+    if (e) msg ? (e.textContent = msg) : e.remove();
+  };
+  const check = el => {
+    const bad = !el.value.trim() || !el.checkValidity();
+    setError(el, bad ? messages[el.name] : '');
+    return !bad;
+  };
+  const required = $$('[required]', form);
+  required.forEach(el => ['input', 'change'].forEach(ev => el.addEventListener(ev, () => { if (el.classList.contains('bad')) check(el); })));
+  const group = $('#svc-group'), boxes = $$('input', group);
+  const checkGroup = () => {
+    const ok = boxes.some(b => b.checked);
+    boxes.forEach(b => b.classList.toggle('bad', !ok));
+    let e = group.querySelector('.err');
+    if (!ok && !e) { e = document.createElement('small'); e.className = 'err'; e.textContent = 'ご希望のサービスを1つ以上選択してください。'; group.append(e); }
+    if (ok && e) e.remove();
+    return ok;
+  };
+  boxes.forEach(b => b.addEventListener('change', () => { if (group.querySelector('.err')) checkGroup(); }));
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    statusEl.className = 'status'; statusEl.textContent = '';
+    const bad = required.filter(el => !check(el));
+    if (!checkGroup()) bad.push(boxes[0]);
+    const firstBad = bad.sort((a, b) => a.compareDocumentPosition(b) & 2 ? 1 : -1)[0];
+    if (firstBad) { firstBad.focus(); return; }
+    const fd = new FormData(form);
+    const data = Object.fromEntries(fd);
+    data.services = fd.getAll('services').join(' / ');
+    if (data.botcheck) return; // bots fill the hidden box
+    const fail = () => {
+      statusEl.className = 'status ng';
+      statusEl.innerHTML = '送信できませんでした。お手数ですがお電話（<a href="tel:022-257-3986">022-257-3986</a>）でご連絡ください。';
+    };
+    if (!FORM_ACCESS_KEY) { fail(); console.warn('FORM_ACCESS_KEY が未設定のため送信していません。'); return; }
+    submitBtn.disabled = true;
+    statusEl.textContent = '送信中です…';
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: FORM_ACCESS_KEY,
+          subject: `【ホームページ】${data.name} 様よりお問い合わせ`,
+          from_name: '宮城清掃ホームページ',
+          'お名前': data.name, email: data.email, '会社名': data.company, '電話番号': data.phone,
+          'お取引状況': data.status, 'お問い合わせ種別': data.type, 'ご希望のサービス内容': data.services,
+          'お問い合わせ内容': data.message, 'プライバシーポリシー': '同意済み'
+        })
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || !json.success) throw new Error(json.message || res.status);
+      form.classList.add('sent');
+      statusEl.className = 'status ok';
+      statusEl.textContent = 'お問い合わせありがとうございます。内容を確認し、3営業日以内にご連絡差し上げます。';
+    } catch (err) {
+      console.error(err); fail();
+    } finally { submitBtn.disabled = false; }
+  });
+
+  // hero slideshow
+  const slides = $$('.slide'), dots = $('#dots');
+  let cur = 0, timer;
+  slides.forEach((sl, i) => {
+    const b = document.createElement('button');
+    b.setAttribute('aria-label', `写真 ${i + 1}：${sl.dataset.cap}`);
+    b.addEventListener('click', () => { show(i); start(); });
+    dots.append(b);
+  });
+  const cap = document.createElement('span'); cap.className = 'cap'; dots.append(cap);
+  function show(i) {
+    cur = (i + slides.length) % slides.length;
+    slides.forEach((sl, n) => sl.classList.toggle('on', n === cur));
+    $$('button', dots).forEach((b, n) => { b.classList.remove('on'); if (n === cur) { void b.offsetWidth; b.classList.add('on'); } });
+    cap.textContent = slides[cur].dataset.cap;
+  }
+  function start() { clearInterval(timer); if (!reduce) timer = setInterval(() => show(cur + 1), 6500); }
+  show(0); setTimeout(start, 3300);
+
+  // gallery lightbox
+  const lb = $('#lb'), lbImg = $('img', lb), lbCap = $('figcaption', lb), works = $$('#gallery .work');
+  let lbIndex = 0, lastFocus;
+  function openLb(i) {
+    lbIndex = (i + works.length) % works.length;
+    const img = $('img', works[lbIndex]);
+    lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt;
+    lbCap.textContent = works[lbIndex].querySelector('figcaption').lastChild.textContent;
+    if (!lb.classList.contains('open')) { lastFocus = document.activeElement; lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false'); $('.x', lb).focus(); }
+  }
+  function closeLb() { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); lastFocus && lastFocus.focus(); }
+  works.forEach((w, i) => {
+    w.addEventListener('click', () => openLb(i));
+    w.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(i); } });
+  });
+  $('.x', lb).addEventListener('click', closeLb);
+  $('.prev', lb).addEventListener('click', () => openLb(lbIndex - 1));
+  $('.next', lb).addEventListener('click', () => openLb(lbIndex + 1));
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') openLb(lbIndex - 1);
+    if (e.key === 'ArrowRight') openLb(lbIndex + 1);
+  });
+
+  // before / after slider
+  const ba = $('#ba'), baInput = $('input', ba);
+  const setBa = v => ba.style.setProperty('--pos', v + '%');
+  baInput.addEventListener('input', () => { ba.dataset.touched = 1; setBa(baInput.value); });
+  // one gentle sweep the first time it scrolls into view, so it is clear it moves
+  new IntersectionObserver((en, ob) => {
+    if (!en[0].isIntersecting) return;
+    ob.disconnect();
+    if (reduce) return;
+    const t0 = performance.now();
+    (function step(t) {
+      if (ba.dataset.touched) return;
+      const k = Math.min(1, (t - t0) / 1800);
+      const v = 50 + Math.sin(k * Math.PI * 2) * 22 * (1 - k * .3);
+      baInput.value = v; setBa(v);
+      if (k < 1) requestAnimationFrame(step); else { baInput.value = 50; setBa(50); }
+    })(t0);
+  }, { threshold: .6 }).observe(ba);
+
+  // card glow follows the pointer
+  $$('.card').forEach(c => c.addEventListener('pointermove', e => {
+    const r = c.getBoundingClientRect();
+    c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  }));
+
+  // scroll-driven: header, progress, parallax, call bar
+  const header = $('#header'), progress = $('#progress'), callbar = $('#callbar');
+  const heroImg = $('.hero-img'), pImgs = $$('[data-parallax-img]');
+  let ticking = false;
+  function onScroll() {
+    const y = scrollY, vh = innerHeight;
+    header.classList.toggle('scrolled', y > 40);
+    callbar.classList.toggle('show', y > vh * 0.6 && $('#contact').getBoundingClientRect().top > vh * 0.5);
+    progress.style.transform = `scaleX(${y / Math.max(1, document.documentElement.scrollHeight - vh)})`;
+    if (!reduce) {
+      if (y < vh * 1.2) heroImg.style.transform = `translateY(${y * 0.18}px)`;
+      pImgs.forEach(img => {
+        const r = img.parentElement.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) return;
+        const p = (r.top + r.height / 2 - vh / 2) / vh; // -1..1
+        img.style.transform = `translateY(${-9 + p * -9}%)`;
+      });
+    }
+    ticking = false;
+  }
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  addEventListener('resize', onScroll);
+  onScroll();
+})();
+</script>
+</body>
+</html>
